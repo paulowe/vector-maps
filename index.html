@@ -1,0 +1,84 @@
+<html>
+  <head>
+    <title>World Map</title>
+    <link href="./dist/jqvmap.css" media="screen" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="./dist/jquery.vmap.js"></script>
+    <script type="text/javascript" src="./dist/maps/jquery.vmap.world.js" charset="utf-8"></script>
+
+
+        <script type="text/javascript">
+
+        var map;
+
+        jQuery(document).ready(function() {
+
+
+
+          // Store currentRegion
+          var currentRegion = 'tz';
+
+          // List of Regions we'll let clicks through for
+          var enabledRegions = ['tz', 'ru', 'us'];
+
+
+          map = jQuery('#vmap').vectorMap(
+        {
+            map: 'world_en',
+
+            backgroundColor: '#a5bfdd',
+            borderColor: '#818181',
+            borderOpacity: 0.25,
+            borderWidth: 1,
+            color: '#f4f3f0',
+            enableZoom: true,
+            /**hoverColor: '#c9dfaf',**/
+            hoverColor: null,
+            colors:{
+              tz: '#C9DFAF',
+              ru: '#C9DFAF',
+              us: '#C9DFAF'
+            },
+            hoverOpacity: null,
+            normalizeFunction: 'linear',
+            multiSelectRegion: true,
+            scaleColors: ['#b6d6ff', '#005ace'],
+            selectedColor: '#000000',
+            selectedRegions: null,
+            showTooltip: true,
+
+
+            onRegionClick: function(event, code, region){
+              // Check if this is an Enabled Region, and not the current selected on
+              if(enabledRegions.indexOf(code) === -1 || currentRegion === code){
+                // Not an Enabled Region
+                event.preventDefault();
+              } else {
+                // Enabled Region. Update Newly Selected Region.
+                currentRegion = code;
+              }
+            },
+            onRegionSelect: function(event, code, region){
+              console.log(map.selectedRegions);
+            },
+            onLabelShow: function(event, label, code){
+              if(enabledRegions.indexOf(code) === -1){
+                event.preventDefault();
+              }
+            }
+
+        });
+      });
+        </script>
+
+    <div style="display:none">
+      <img id="pin_for_pk" src="pk.png" />
+      <div id="pin_for_ru">...</div>
+    </div>
+
+  </head>
+  <body>
+    <div id="vmap" style="width: 100%; height: 100%;"></div>
+  </body>
+</html>
