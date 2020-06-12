@@ -1,6 +1,4 @@
-# diningPhilosopher
-
-Configuration Settings
+# Map Configuration Settings
 
 ## map 'world_en'
 Map you want to load. Must include the javascript file with the name of the map you want. Available maps with this library are world_en, usa_en, europe_en and germany_en
