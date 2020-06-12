@@ -7,6 +7,9 @@
     <script type="text/javascript" src="./dist/jquery.vmap.js"></script>
     <script type="text/javascript" src="./dist/maps/jquery.vmap.world.js" charset="utf-8"></script>
 
+    <!-- Include jQuery Popup Overlay -->
+    <script src="https://cdn.jsdelivr.net/gh/vast-engineering/jquery-popup-overlay@2/jquery.popupoverlay.min.js">
+    </script>
 
     <script type="text/javascript">
 
@@ -50,14 +53,9 @@
 
 
         onRegionClick: function(event, code, region){
-          // Check if this is an Enabled Region, and not the current selected on
-          if(enabledRegions.indexOf(code) === -1 || currentRegion === code){
-            // Not an Enabled Region
-            event.preventDefault();
-          } else {
-            // Enabled Region. Update Newly Selected Region.
-            currentRegion = code;
-          }
+          if(enabledRegions.indexOf(code) === 1 ){
+          $('#JPO').popup();
+         }
         },
         onRegionSelect: function(event, code, region){
           console.log(map.selectedRegions);
@@ -81,7 +79,24 @@
 
 
   <body>
+<div class="JPO_open">
     <div id="vmap" style="width: 100%; height: 100%;"></div>
+
+
+    </div>
+
+
+
+    <!-- Add content to the popup -->
+ <div id="JPO">
+   {{ Popup Content }}
+   <!-- Add a button to close the popup (optional) -->
+   <button class="JPO_close">Close</button>
+ </div>
+
+
+
+
   </body>
 
 
