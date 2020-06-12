@@ -48,43 +48,43 @@ Whether to Enable Map Zoom ( true or false, defaults to true)
 ## normalizeFunction 'linear'
 This function can be used to improve results of visualizations for data with non-linear nature. Function gets raw value as the first parameter and should return value which will be used in calculations of color, with which particular region will be painted.
 
-# selectedRegions ['MO', 'FL', 'OR']
+## selectedRegions ['MO', 'FL', 'OR']
 This is the Region that you are looking to have preselected (two letter ISO code, defaults to null ). See REGIONS.md
 
-# multiSelectRegion boolean
+## multiSelectRegion boolean
 Whether to enable more than one region to be selected at a time.
 
-# onLoad function(event, map)
+## onLoad function(event, map)
 Callback function which will be called when map is loading, returning the map event and map details.
 
-# showTooltip boolean
+## showTooltip boolean
 Whether to show Tooltips on Mouseover ( true or false, defaults to true )
 
-# onLabelShow function(event, label, code)
+## onLabelShow function(event, label, code)
 Callback function which will be called before label is shown. Label DOM object and country code will be passed to the callback as arguments.
 
-# onRegionOver function(event, code, region)
+## onRegionOver function(event, code, region)
 Callback function which will be called when the mouse cursor enters the region path. Country code will be passed to the callback as argument.
 
-# onRegionOut function(event, code, region)
+## onRegionOut function(event, code, region)
 Callback function which will be called when the mouse cursor leaves the region path. Country code will be passed to the callback as argument.
 
-# onRegionClick function(event, code, region)
+## onRegionClick function(event, code, region)
 Callback function which will be called when the user clicks the region path. Country code will be passed to the callback as argument. This callback may be called while the user is moving the map. If you need to distinguish between a "real" click and a click resulting from moving the map, you can inspect $(event.currentTarget).data('mapObject').isMoving.
 
-# onRegionSelect function(event, code, region)
+## onRegionSelect function(event, code, region)
 Callback function which will be called when the selects a region. Country code will be passed to the callback as argument.
 
-# onRegionDeselect function(event, code, region)
+## onRegionDeselect function(event, code, region)
 Callback function which will be called when the deselects a region. Country code will be passed to the callback as argument.
 
-# onResize function(event, width, height)
+## onResize function(event, width, height)
 Callback function which will be called when the map is resized. Return event, width & height.
 
-# pins { "pk" : "pk_pin_metadata", "ru" : "ru_pin_metadata", ... }
+## pins { "pk" : "pk_pin_metadata", "ru" : "ru_pin_metadata", ... }
 This option defines pins, which will be placed on the regions. The JSON can have only one element against one country code. Elements should be strings containing the HTML or id of the pin (depends on the 'pinMode' option explained next).
 
-# pinMode content
+## pinMode content
 This option defines if the "pins" JSON contains the HTML strings of the pins or the ids of HTML DOM elements which are to be placed as pins.
 
 If the pin mode is "content" (or not specified) then the parameter "pins" contains the stringified html content to be placed as the pins.
